@@ -1,16 +1,16 @@
 import { NgModule } from '@angular/core';
-import { CommonModule, Location } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ModifyAccountPage } from './modify-account.page';
+import { TabSettingPage } from './tab-setting.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: ModifyAccountPage
+    component: TabSettingPage
   }
 ];
 
@@ -21,6 +21,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ModifyAccountPage]
+  declarations: [TabSettingPage]
 })
-export class ModifyAccountPageModule {}
+export class TabSettingPageModule {}
