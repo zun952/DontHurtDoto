@@ -8,51 +8,51 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       {
-        path: 'tab1',
+        path: 'tab-dayrecord',
         children: [
           {
             path: '',
-            loadChildren: '../tab1/tab1.module#Tab1PageModule'
+            loadChildren: '../tab-dayrecord/tab-dayrecord.module#TabDayrecordPageModule'
           }
         ]
       },
       {
-        path: 'tab2',
+        path: 'tab-review',
         children: [
           {
             path: '',
-            loadChildren: '../tab2/tab2.module#Tab2PageModule'
+            loadChildren: '../tab-review/tab-review.module#TabReviewPageModule'
           }
         ]
       },
       {
-        path: 'tab3',
+        path: 'tab-map',
         children: [
           {
             path: '',
-            loadChildren: '../tab3/tab3.module#Tab3PageModule'
+            loadChildren: '../tab-map/tab-map.module#TabMapPageModule'
           }
         ]
       },
       {
-        path: 'tab4',
+        path: 'tab-setting',
         children: [
           {
             path: '',
-            loadChildren: '../tab4/tab4.module#Tab4PageModule'
+            loadChildren: '../tab-setting/tab-setting.module#TabSettingPageModule'
           }
         ]
       },
       {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/tabs/tab-dayrecord',
         pathMatch: 'full'
       }
     ]
   },
   {
     path: '',
-    redirectTo: '/tabs/tab1',
+    redirectTo: '/tabs/tab-dayrecord',
     pathMatch: 'full'
   }
 ];
