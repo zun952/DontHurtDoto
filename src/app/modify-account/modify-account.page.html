@@ -1,8 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      설정
-    </ion-title>
+    <ion-title>계정정보 수정</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -15,7 +13,7 @@
           <!--ion-card-subtitle>이메일 수정은 불가능합니다</ion-card-subtitle-->
         </ion-col>
         <ion-col style="text-align: right">
-          <ion-button [routerLink]="['/modify-account']" size="small">수정</ion-button>
+          <ion-button size="small">수정 완료</ion-button>
         </ion-col>
       </ion-row>
     </ion-card-header>
@@ -23,15 +21,15 @@
     <ion-card-content padding>
       <ion-item>
         <ion-label position="stacked">이메일</ion-label>
-        <ion-text color="dark">gofire99@naver.com</ion-text>
+        <ion-input>gofire99@naver.com</ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="stacked">비밀번호</ion-label>
-        <ion-text color="dark">***********</ion-text>
+        <ion-input>***********</ion-input>
       </ion-item>
       <ion-item>
         <ion-label position="stacked">닉네임</ion-label>
-        <ion-text color="dark">ㅎㅎㅎㅎ</ion-text>
+        <ion-input>ㅎㅎㅎㅎ</ion-input>
       </ion-item>
       <!--ion-row>
         <ion-col style="text-align: center">
@@ -40,15 +38,4 @@
       </ion-row-->
     </ion-card-content>
   </ion-card>
-  
-  <ion-row>
-    <ion-col style="text-align: center">
-      <ion-button>반려동물 정보 수정</ion-button>
-    </ion-col>
-  </ion-row>
-  <ion-row>
-    <ion-col style="text-align: center">
-      <ion-button color="danger">회원 탈퇴</ion-button>
-    </ion-col>
-  </ion-row>
 </ion-content>
