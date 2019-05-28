@@ -1,8 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      설정
-    </ion-title>
+    <ion-title text-center>설정</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -15,7 +13,7 @@
           <!--ion-card-subtitle>이메일 수정은 불가능합니다</ion-card-subtitle-->
         </ion-col>
         <ion-col style="text-align: right">
-          <ion-button [routerLink]="['/edit-account']" size="small">수정</ion-button>
+          <ion-button routerLink="/tabs/tab-setting/edit-account" size="small">수정</ion-button>
         </ion-col>
       </ion-row>
     </ion-card-header>
@@ -33,11 +31,6 @@
         <ion-label position="stacked">닉네임</ion-label>
         <ion-text color="dark">ㅎㅎㅎㅎ</ion-text>
       </ion-item>
-      <!--ion-row>
-        <ion-col style="text-align: center">
-          <ion-button>수정</ion-button>
-        </ion-col>
-      </ion-row-->
     </ion-card-content>
   </ion-card>
   

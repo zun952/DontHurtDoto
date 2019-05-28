@@ -1,8 +1,31 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-title>계정정보 수정</ion-title>
+  <ion-toolbar >
+    <ion-title text-center>
+      계정정보 수정
+    </ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button icon="arrow-round-back" default-href=""></ion-back-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
+<!--
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="secondary">
+      <ion-button fill="solid">
+        <ion-icon slot="start" name="contact"></ion-icon>
+        Contact
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Solid Buttons</ion-title>
+    <ion-buttons slot="primary">
+      <ion-button fill="solid" color="secondary">
+        Help
+        <ion-icon slot="end" name="help-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>-->
 
 <ion-content padding>
   <ion-card>
@@ -13,7 +36,8 @@
           <!--ion-card-subtitle>이메일 수정은 불가능합니다</ion-card-subtitle-->
         </ion-col>
         <ion-col style="text-align: right">
-          <ion-button size="small">수정 완료</ion-button>
+          <ion-button routerLink="../" size="small">수정 완료</ion-button>
+
         </ion-col>
       </ion-row>
     </ion-card-header>
@@ -26,7 +50,7 @@
       <ion-item>
         <ion-label position="stacked">비밀번호</ion-label>
         <ion-input>***********</ion-input>
-      </ion-item>
+      </ion-item> 
       <ion-item>
         <ion-label position="stacked">닉네임</ion-label>
         <ion-input>ㅎㅎㅎㅎ</ion-input>

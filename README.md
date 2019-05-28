@@ -2,8 +2,6 @@
 
 This is the project for greduate.
 
-tab srcs are in src/app
-
 src
   /app
     /edit-account   : editting account at setting
@@ -14,3 +12,8 @@ src
     /tab-review     : diagnosis record and review page
     /tab-setting    : setting page
     /tabs           : manage tabs
+
+
+if "ionic serve" dosen't work, try to remove node_module folder in this project and type "npm install"
+
+thanks

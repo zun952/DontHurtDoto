@@ -50,7 +50,7 @@ const routes: Routes = [
       }
     ]
   },
-  {
+  {//시작화면?
     path: '',
     redirectTo: '/tabs/tab-dayrecord',
     pathMatch: 'full'

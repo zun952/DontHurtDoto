@@ -2,18 +2,24 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
-
 import { IonicModule } from '@ionic/angular';
-
 import { TabSettingPage } from './tab-setting.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: TabSettingPage
+    children: [
+      {
+        path: '',
+        component: TabSettingPage
+      },
+      {
+        path: 'edit-account',
+        loadChildren: '../edit-account/edit-account.module#EditAccountPageModule'
+      }
+    ]
   }
 ];
-
 @NgModule({
   imports: [
     CommonModule,
