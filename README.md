@@ -1,6 +1,6 @@
 # DontHurtDoto
 
-This is the project for greduate.
+This is the project for graduate.
 
 <<<<<<< HEAD
 src
