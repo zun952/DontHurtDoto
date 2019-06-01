@@ -10,6 +10,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { Geolocation } from '@ionic-native/geolocation/ngx';
+import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -17,6 +20,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   providers: [
     StatusBar,
     SplashScreen,
+    Geolocation,
+    NativeGeocoder,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
