@@ -1,19 +1,15 @@
 
 <ion-header>
-  <ion-row>
-    <ion-col text-start padding-top>
-      <ion-title>동물병원 지도</ion-title>
-    </ion-col>
-    <ion-col text-end>
-      <ion-button (click)="loadMap()" shape="round" fill="outline">
-        <ion-icon slot="start" name="locate"></ion-icon>
-        Where I Am
-      </ion-button>
-    </ion-col>
-  </ion-row>
+  <ion-toolbar>
+    <ion-title>동물병원 지도</ion-title>
+    <ion-button (click)="loadMap()" shape="round" fill="outline" size="small">
+      <ion-icon slot="start" name="locate" ></ion-icon>
+      Activate
+    </ion-button>
+  </ion-toolbar>
 </ion-header>
+
 <ion-content>
- 
   <div class="map-wrapper">
     <div id="map_center">
       <img src="../../assets/icon/center_marker.png" />
@@ -23,6 +19,4 @@
   <div id="address">
     <span>{{address}}</span>
   </div>
- 
- 
 </ion-content>
