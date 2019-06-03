@@ -1,11 +1,24 @@
 <ion-header>
   <ion-toolbar>
     <ion-title text-center>
-      운동량 
+      건강 관리
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    
+  <ion-row>
+    <ion-card>
+      <ion-card-header text-center>운동량</ion-card-header>
+      <ion-card-content>
+        <canvas #doughnutCanvas1></canvas>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-header text-center>식사량</ion-card-header>
+      <ion-card-content>
+        <canvas #doughnutCanvas2></canvas>
+      </ion-card-content>
+    </ion-card>
+  </ion-row>
 </ion-content>

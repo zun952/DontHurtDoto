@@ -16,7 +16,12 @@ const routes: Routes = [
       {
         path: 'edit-account',
         loadChildren: '../edit-account/edit-account.module#EditAccountPageModule'
-      }
+      },
+      {
+        path: 'edit-pet',
+        loadChildren: '../edit-pet/edit-pet.module#EditPetPageModule'
+      },
+      
     ]
   }
 ];
