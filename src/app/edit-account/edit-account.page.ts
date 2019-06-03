@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-edit-account',
@@ -6,8 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./edit-account.page.scss'],
 })
 export class EditAccountPage implements OnInit {
-  constructor() { }
+  constructor(public navCtrl: NavController) { }
 
   ngOnInit() {
+  }
+
+  goBack(){
+    this.navCtrl.pop();
   }
 }
