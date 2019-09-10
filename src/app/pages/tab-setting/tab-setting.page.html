@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title text-center>설정</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      <ion-row>
+        <ion-col>
+          <ion-card-title>계정정보</ion-card-title>
+        </ion-col>
+        <ion-col style="text-align: right">
+          <ion-button (click)="editaccount()" [routerLink]="['/edit-account']" size="small">수정</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-card-header>
+    
+    <ion-card-content padding>
+      <ion-item>
+        <ion-label position="stacked">이메일</ion-label>
+        <ion-text color="dark">gofire99@naver.com</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">비밀번호</ion-label>
+        <ion-text color="dark">***********</ion-text>
+      </ion-item>
+      <ion-item>
+        <ion-label position="stacked">닉네임</ion-label>
+        <ion-text color="dark">ㅎㅎㅎㅎ</ion-text>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-row>
+    <ion-col style="text-align: center">
+      <ion-button (click)="editpet()" [routerLink]="['/edit-pet']">반려동물 정보 관리</ion-button>
+    </ion-col>
+    <ion-col style="text-align: center">
+      <ion-button (click)="logout()" [routerLink]="['/login']" color="danger">로그아웃</ion-button>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col style="text-align: center">
+      <ion-button color="danger">회원 탈퇴</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-content>

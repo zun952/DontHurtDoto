@@ -1,6 +1,8 @@
 {
   "name": "donthurtdoto",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular",
   "id": "53ed2b1f"
 }

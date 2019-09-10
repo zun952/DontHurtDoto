@@ -10,37 +10,25 @@ const routes: Routes = [
       {
         path: 'tab-dayrecord',
         children: [
-          {
-            path: '',
-            loadChildren: '../tab-dayrecord/tab-dayrecord.module#TabDayrecordPageModule'
-          }
+          { path: '', loadChildren: '../pages/tab-dayrecord/tab-dayrecord.module#TabDayrecordPageModule' }
         ]
       },
       {
         path: 'tab-review',
         children: [
-          {
-            path: '',
-            loadChildren: '../tab-review/tab-review.module#TabReviewPageModule'
-          }
+          { path: '', loadChildren: '../pages/tab-review/tab-review.module#TabReviewPageModule' }
         ]
       },
       {
         path: 'tab-map',
         children: [
-          {
-            path: '',
-            loadChildren: '../tab-map/tab-map.module#TabMapPageModule'
-          }
+          { path: '', loadChildren: '../pages/tab-map/tab-map.module#TabMapPageModule' }
         ]
       },
       {
         path: 'tab-setting',
         children: [
-          {
-            path: '',
-            loadChildren: '../tab-setting/tab-setting.module#TabSettingPageModule'
-          }
+          { path: '', loadChildren: '../pages/tab-setting/tab-setting.module#TabSettingPageModule' }
         ]
       },
       {

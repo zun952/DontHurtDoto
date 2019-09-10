@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title text-center>로그인</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div>
+    <img class="img" src="../../assets/icon/favicon.png"/>
+  </div>
+
+  <ion-card padding>
+    <ion-item>
+      <ion-label position="stacked">이메일</ion-label>
+      <ion-input type="text" [(ngModel)]="username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">비밀번호</ion-label> 
+      <ion-input type="password" [(ngModel)]="password"></ion-input>
+    </ion-item>
+  </ion-card>
+
+  <ion-row style="text-align: center">
+    <ion-col>
+      <ion-button (click)="login()" [routerLink]="['']">로그인</ion-button>
+    </ion-col>
+  </ion-row>
+
+  <ion-row style="text-align: center">
+    <ion-col>
+      <ion-button (click)="register()" [routerLink]="['/register']">회원가입</ion-button>
+    </ion-col>
+  </ion-row>
+
+</ion-content>
