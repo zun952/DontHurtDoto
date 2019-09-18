@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-tab-setting',
@@ -8,18 +8,18 @@ import { NavController } from '@ionic/angular';
 })
 export class TabSettingPage implements OnInit {
 
-  constructor(private navCtrl: NavController) { }
+  constructor(public router: Router) { }
 
   ngOnInit() {
   }
 
   editpet(){
-    this.navCtrl.navigateForward('/edit-pet');
+    this.router.navigate(['/edit-pet']);
   }
   editaccount(){
-    this.navCtrl.navigateForward('/edit-account');
+    this.router.navigate(['/edit-account']);
   }
   logout(){
-    
+    this.router.navigate(['/login']);
   }
 }
