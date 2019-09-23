@@ -1,0 +1,6 @@
+{
+    "EventKit.framework": 1,
+    "EventKitUI.framework": 1,
+    "WebKit.framework": 1,
+    "CoreLocation.framework": 2
+}

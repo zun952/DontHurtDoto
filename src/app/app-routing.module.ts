@@ -7,7 +7,7 @@ const routes: Routes = [
   { path: 'register', loadChildren: './pages/register/register.module#RegisterPageModule' },
   { path: 'edit-account', loadChildren: './pages/edit-account/edit-account.module#EditAccountPageModule' },
   { path: 'edit-pet', loadChildren: './pages/edit-pet/edit-pet.module#EditPetPageModule' },
-  { path: 'create-review', loadChildren: './pages/create-review/create-review.module#CreateReviewPageModule' },
+  { path: 'review/:mode', loadChildren: './pages/review/review.module#ReviewPageModule' },
   { path: 'show-review', loadChildren: './pages/show-review/show-review.module#ShowReviewPageModule' }
 ];
 @NgModule({

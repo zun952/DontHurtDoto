@@ -33,15 +33,9 @@ export class TabReviewPage {
       }
     }, 500);
   }
-  /*
-	toggleInfiniteScroll() {
-		console.log("toggled");
-		this.infiniteScroll.disabled = !this.infiniteScroll.disabled;
-  }
-  */
 
   createReview(){
-    this.router.navigate(['/create-review']);
+    this.router.navigate(['/review/'+'create']);
   }
 
   showReview(){
