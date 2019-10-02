@@ -3,7 +3,7 @@
 This is the project for greduate.
 
 # Application Structure
-- pages/ : display, frontend function
+- app/pages/ : display, frontend function
 - provider/ : request methods
 - server/ : rest api nodejs server
 
