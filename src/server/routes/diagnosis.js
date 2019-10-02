@@ -6,6 +6,7 @@ mysql = require('mysql');
 var con = mysql.createConnection(require('../dbconfig'));
 con.connect();
 
+//api
 router.get('', function(req, res){
     con.query('select * from diagnosis where diagnosis_id = ' + req.query.dx_id,  function(err, rows){
         if(err) { 
