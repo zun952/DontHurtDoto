@@ -1,0 +1,76 @@
+<ion-header translucent>
+  <ion-toolbar >
+    <ion-buttons slot="start">
+      <ion-back-button default-href="" text=""></ion-back-button>
+    </ion-buttons>
+    <ion-title *ngIf="myMod" class="ion-text-center">진료 기록하기</ion-title>
+    <ion-title *ngIf="!myMod" class="ion-text-center">진료 수정하기</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-list>
+    <ion-item>
+      <ion-label>진료 날짜</ion-label>
+      <ion-datetime display-format="YYYY.MM.DD" [(ngModel)]="diagDate"></ion-datetime>
+    </ion-item>
+    <ion-item>
+      <ion-label>진료 시간</ion-label>
+      <ion-datetime display-format="HH:mm" [(ngModel)]="diagDate"></ion-datetime>
+    </ion-item>
+    <ion-item>
+        <ion-label>반려동물 선택</ion-label>
+        <ion-select interface="popover">
+          <ion-select-option *ngFor="let pet of pets">{{pet}}</ion-select-option>
+      </ion-select>
+    </ion-item>
+    
+    <ion-item>
+      <ion-label>진료 병원</ion-label>
+      <ion-input (click)="searchClinic()" placeholder="병원을 입력해주세요." style="text-align: end" [(ngModel)]="clinic">
+        <!--ion-modal-controller></ion-modal-controller-->
+      </ion-input>
+      <ion-button (click)="searchClinic()" fill="clear">
+        <ion-icon slot="icon-only" name="search"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+
+  <ion-list>
+    <ion-list-header>
+      <ion-label>진단내용</ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-label>진단명</ion-label>
+        <ion-input placeholder="병명을 입력해주세요." style="text-align: end" [(ngModel)]="diagnosis"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>발병시기</ion-label>
+      <ion-datetime display-format="YYYY.MM.DD" [(ngModel)]="sickDate"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">증상</ion-label>
+      <ion-textarea placeholder="증상을 입력해주세요." [(ngModel)]="symtom"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label position="stacked">소견 및 처방</ion-label>
+      <ion-textarea placeholder="소견을 입력해주세요." [(ngModel)]="prognosis"></ion-textarea>
+    </ion-item>
+  </ion-list>
+
+  <ion-item>
+    <ion-label>진료비</ion-label>
+    <ion-input type="number" style="text-align: end" pattern="\d*"></ion-input>
+    <ion-label>원</ion-label>
+  </ion-item>
+
+  <ion-row>
+    <ion-col style="text-align: center">
+      <ion-button *ngIf="myMod" (click)="createReview()">등록</ion-button>
+      <ion-button *ngIf="!myMod" (click)="modifyReview()">등록</ion-button>
+      <ion-button (click)="cancel()" color="danger">취소</ion-button>
+    </ion-col>
+  </ion-row>
+  
+</ion-content>

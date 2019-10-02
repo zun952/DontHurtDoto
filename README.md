@@ -5,14 +5,25 @@ This is the project for greduate.
 <<<<<<< HEAD
 src
   /app
-    /edit-account   : editting account at setting
-    /edit-pet       : editting pet data at setting
-    /login          : login page
-    /tab-dayrecord  : dayrecord page
-    /tab-map        : map page
-    /tab-review     : diagnosis record and review page
-    /tab-setting    : setting page
-    /tabs           : manage tabs
+    /pages
+      /edit-account
+      /edit-pet
+      /login
+      /register
+      /review
+      /show-review
+      /tab-dayrecord
+      /tab-map
+      /tab-review
+      /tab-setting
+    /provider
+      -review.ts : request methods for tab-review page
+    /server
+      -dbconfig.js
+      -service.js  : server activator
+      /routes : api route folder
+        -index.js
+        -diagnosis.js : route for tab-review page
 
 =======
 >>>>>>> 46aa21951fd59b078ee6e5d820fa27c6f7b16e4e

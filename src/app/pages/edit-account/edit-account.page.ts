@@ -12,7 +12,5 @@ export class EditAccountPage implements OnInit {
   ngOnInit() {
   }
 
-  goBack(){
-    this.navCtrl.pop();
-  }
+  goBack(){ this.navCtrl.pop(); }
 }
