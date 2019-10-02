@@ -46,7 +46,7 @@
 
     <ion-item>
       <ion-label position="stacked">증상</ion-label>
-      <ion-textarea [(ngModel)]="symtom"></ion-textarea>
+      <ion-textarea [(ngModel)]="symptom"></ion-textarea>
     </ion-item>
     <ion-item>
       <ion-label position="stacked">예후 소견</ion-label>
@@ -56,7 +56,7 @@
 
   <ion-item>
     <ion-label>진료비</ion-label>
-    <ion-input type="number" style="text-align: end" pattern="\d*"></ion-input>
+    <ion-input type="number" style="text-align: end" pattern="\d*" [(ngModel)]="cost"></ion-input>
     <ion-label>원</ion-label>
   </ion-item>
 

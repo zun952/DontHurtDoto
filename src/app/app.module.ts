@@ -13,13 +13,15 @@ import { Geolocation } from '@ionic-native/geolocation/ngx';
 import { NativeGeocoder } from '@ionic-native/native-geocoder/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 
-import { PopoverComponent } from '../app/popover/popover.component'
-
+import { PopoverComponent } from '../app/popover/popover.component';
+import { Reviews } from 'src/provider/review';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [AppComponent, PopoverComponent],
   entryComponents: [PopoverComponent],
   imports: [ BrowserModule,
+    HttpModule,
     IonicModule.forRoot(),
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -32,6 +34,7 @@ import { PopoverComponent } from '../app/popover/popover.component'
     SplashScreen,
     Geolocation,
     NativeGeocoder,
+    Reviews,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent],

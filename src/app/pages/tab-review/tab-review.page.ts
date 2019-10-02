@@ -1,20 +1,31 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonInfiniteScroll } from '@ionic/angular';
-import { Router } from '@angular/router';
+import { Router, NavigationExtras } from '@angular/router';
+import { Reviews } from '../../../provider/review'
 
 @Component({
   selector: 'app-tab-review',
   templateUrl: 'tab-review.page.html',
-  styleUrls: ['tab-review.page.scss']
+  styleUrls: ['tab-review.page.scss'],
 })
 
 export class TabReviewPage {
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
-  dataList: Array<any> = [6, 4, 2, 3, 1];
+  dataList: Array<any> = [ 1, 2, 3, 4];
+  user_id: any;
+  dx_id: any;
 
-  constructor(public router: Router){
-    console.log(this.dataList);
+  constructor(public router: Router, public review: Reviews){
+    /*
+    this.review.getDxList(this.user_id).then((data) => {
+        //파싱하는 법
+        //날짜 별 리스트 업 하기
+        //달력 버튼 누르면 재 검색하기
+    });
+    */
 
+    this.user_id = 'gofire99@naver.com';
+    this.dx_id = 1;
   }
   
   loadData(event) {
@@ -39,6 +50,12 @@ export class TabReviewPage {
   }
 
   showReview(){
-    this.router.navigate(['/show-review']);
+    let navExtra: NavigationExtras = {
+      queryParams: {
+        user_id: this.user_id,
+        dx_id: this.dx_id
+      }
+    }
+    this.router.navigate(['/show-review'], navExtra);
   }
 }
