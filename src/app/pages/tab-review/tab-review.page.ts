@@ -11,31 +11,55 @@ import { Reviews } from '../../../provider/review'
 
 export class TabReviewPage {
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
-  dataList: Array<any> = [ 1, 2, 3, 4];
+  dataList: Array<any> = [];
   user_id: any;
   dx_id: any;
+  currentDate: any;
+  options = {};
+  date = new Date()
 
-  constructor(public router: Router, public review: Reviews){
-    /*
-    this.review.getDxList(this.user_id).then((data) => {
-        //파싱하는 법
-        //날짜 별 리스트 업 하기
-        //달력 버튼 누르면 재 검색하기
-    });
-    */
+  constructor(public router: Router, public review: Reviews){ }
 
+  ngOnInit(){
     this.user_id = 'gofire99@naver.com';
     this.dx_id = 1;
+    this.currentDate = this.date.getFullYear() + '-' + (this.date.getMonth() + 1) + '-' +
+      '13'/*this.date.getDate()*/;
+    console.log(this.currentDate);
+
+    this.options = {
+      user_id: this.user_id,
+      //dx_date: this.dx_date
+      dx_date: this.currentDate
+    };
+
+    this.review.getDxList(this.options).then((data) => {
+      for(var i = 0; data[i]; i++){
+        this.dataList[i] = data[i];
+        this.dataList[i]['diagnosis_date'] =
+         new Date(this.dataList[i]['diagnosis_date']).getHours() + ':' +
+         new Date(this.dataList[i]['diagnosis_date']).getMinutes();
+      }
+    });
+  }
+
+  ionViewWillEnter() {
+    this.review.getDxList(this.options).then((data) => {
+      for(var i = 0; data[i]; i++){
+        this.dataList[i] = data[i];
+        this.dataList[i]['diagnosis_date'] =
+         new Date(this.dataList[i]['diagnosis_date']).getHours() + ':' +
+         new Date(this.dataList[i]['diagnosis_date']).getMinutes();
+      }
+    });
   }
   
   loadData(event) {
-    console.log("load data");
     setTimeout(() => {
       console.log('Done');
 
       for(let i = 0; i < 30; i++){
         this.dataList.push("Item Number : " + this.dataList.length);
-        console.log("fn : " + i);
       }
       event.target.complete();
 
@@ -49,11 +73,11 @@ export class TabReviewPage {
     this.router.navigate(['/review/'+'create']);
   }
 
-  showReview(){
+  showReview(dx_id: number){
     let navExtra: NavigationExtras = {
       queryParams: {
         user_id: this.user_id,
-        dx_id: this.dx_id
+        dx_id: dx_id
       }
     }
     this.router.navigate(['/show-review'], navExtra);
