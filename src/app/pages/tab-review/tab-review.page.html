@@ -1,17 +1,21 @@
 <ion-header translucent>
-  <ion-toolbar>
-    <ion-title class="ion-text-center">진료 기록</ion-title>
-	<ion-button slot="end" fill="clear" (click)="createReview()" style="max-height: 25px">
-		<ion-icon slot="icon-only" name="add-circle-outline"></ion-icon>
-	</ion-button>
-  </ion-toolbar>
+	<ion-toolbar>
+		<ion-title class="ion-text-center">진료 기록</ion-title>
+		<ion-button slot="end" fill="clear" (click)="createReview()" style="max-height: 25px">
+			<ion-icon slot="icon-only" name="add-circle-outline"></ion-icon>
+		</ion-button>
+	</ion-toolbar>
 </ion-header>
 
 <ion-content fullscreen>
 	<ion-calendar [(ngModel)]="date" [format]="'YYYY-MM-DD'"></ion-calendar>
 	
-	<ion-item *ngFor="let item of dataList">
-		<ion-label (click)="showReview()">{{item}}</ion-label>
+	<ion-item *ngFor="let item of dataList" (click)="showReview(item.diagnosis_id)" style="margin-left: 5%; margin-right: 15%;">
+		<ion-label>
+			<h3>{{item.diagnosis_date}}    -    {{item.pet_name}}</h3>
+			<h2>{{item.diagnosis_name}}</h2>
+			<p>{{item.clinic_name}}</p>
+		</ion-label>
 	</ion-item>
 	
 	<ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
