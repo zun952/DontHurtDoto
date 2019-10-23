@@ -10,12 +10,16 @@ con.connect();
 
 router.all("/*", function(req, res, next){
     res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+    res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content-Length, X-Requested-With');
     next();
 });
 
-//api
+
+
+////api
+
+//진료기록 상세보기
 router.get('', function(req, res){
     con.query('select ' +
     'dx.diagnosis_date' +
@@ -42,6 +46,7 @@ router.get('', function(req, res){
     });
 });
 
+//날짜별 진료기록 목록보기
 router.get('/list', function(req, res){
     con.query('select ' +
 		'dx.diagnosis_date' +
@@ -67,6 +72,7 @@ router.get('/list', function(req, res){
     });
 });
 
+//진료기록 수정하기
 router.put('/mod', function(req, res){
     con.query('update diagnosis set diagnosis_date = \'' + req.body.diagnosis_date +
     '\', clinic_code = \'' + req.body.clinic_code +
@@ -85,6 +91,7 @@ router.put('/mod', function(req, res){
     });
 });
 
+//새 진료기록 쓰기
 router.post('/post', function(req, res){
     con.query('insert into diagnosis(user_id, pet_id, clinic_code, diagnosis_date, ' +
     'diagnosis_name, sick_Date, diagnosis_symptom, diagnosis_prognosis, diagnosis_cost)' +
