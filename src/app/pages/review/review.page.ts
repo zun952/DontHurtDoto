@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
 import { NavController } from '@ionic/angular';
 import { Reviews } from "../../../provider/review";
+import { Pets } from "../../../provider/pet";
 
 @Component({
   selector: 'app-review',
@@ -9,7 +10,7 @@ import { Reviews } from "../../../provider/review";
   styleUrls: ['./review.page.scss'],
 })
 export class ReviewPage implements OnInit {
-  pets = [];        //사용자 펫 목록
+  petList = [];        //사용자 펫 목록
   user_id: any;
   dx_id: any;
   currentDate: String;
@@ -24,7 +25,7 @@ export class ReviewPage implements OnInit {
   prognosis: String;
   pet = {
     state: 0,
-    id: 0,   //pet_code
+    id: 0,      //pet_code
     name: ""    //pet_name
   };
   petM: String;
@@ -34,13 +35,19 @@ export class ReviewPage implements OnInit {
   options = {};
 
   constructor(public router: Router, public navCtrl: NavController,
-    private route: ActivatedRoute, public review: Reviews) { }
+    private route: ActivatedRoute, public review: Reviews,
+    public pets: Pets) { }
 
   ngOnInit() {
-    this.user_id = "gofire99@naver.com"
-    this.pets = [24, 11, 53, 9];
+    this.user_id = "gofire99@naver.com";
     this.currentDate = new Date().toLocaleString();
     let flag = this.route.snapshot.paramMap.get("mode");
+    
+    this.pets.getPetList(this.user_id).then(data => {
+      for(var i = 0; data[i]; i++){
+        this.petList[i] = data[i]['pet_name']
+      }
+    });
 
     if (flag.match("create")) {
       this.myMod = 1;
@@ -60,8 +67,6 @@ export class ReviewPage implements OnInit {
           this.prognosis = params.prognosis;
           this.cost = params.cost;
         }
-        console.log(this.pet)
-        console.log(this.clinic)
       });
     }
   }
@@ -125,6 +130,6 @@ export class ReviewPage implements OnInit {
 
   //작업 취소
   cancel(){
-    this.router.navigate(['/tab-review']);
+    this.navCtrl.pop();
   }
 }

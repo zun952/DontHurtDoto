@@ -12,8 +12,8 @@
 	
 	<ion-item *ngFor="let item of dataList" (click)="showReview(item.diagnosis_id)" style="margin-left: 5%; margin-right: 15%;">
 		<ion-label>
-			<h3>{{item.diagnosis_date}}    -    {{item.pet_name}}</h3>
-			<h2>{{item.diagnosis_name}}</h2>
+			<h3>{{item.diagnosis_date}}</h3>
+			<h2>{{item.diagnosis_name}}     -    {{item.pet_name}}</h2>
 			<p>{{item.clinic_name}}</p>
 		</ion-label>
 	</ion-item>

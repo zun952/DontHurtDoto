@@ -15,6 +15,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { PopoverComponent } from '../app/popover/popover.component';
 import { Reviews } from 'src/provider/review';
+import { Pets } from 'src/provider/pet';
 import { HttpModule } from '@angular/http';
 
 @NgModule({
@@ -35,6 +36,7 @@ import { HttpModule } from '@angular/http';
     Geolocation,
     NativeGeocoder,
     Reviews,
+    Pets,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent],

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Headers } from '@angular/http';
+import { Http } from '@angular/http';
 import { map } from "rxjs/operators";
 
 @Injectable()
@@ -9,7 +9,7 @@ export class Reviews{
     uri: any;
 
     constructor(public http: Http){
-        this.ip = "localhost";
+        this.ip = "ec2-54-180-121-181.ap-northeast-2.compute.amazonaws.com";
         this.port = "8080";
         this.uri = 'http://' + this.ip + ':' + this.port;
     }
