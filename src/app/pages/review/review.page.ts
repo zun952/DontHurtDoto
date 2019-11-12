@@ -75,11 +75,12 @@ export class ReviewPage implements OnInit {
   createReview(){
     let datetime = new Date(String(this.diagDate));
     let date = datetime.getFullYear() + '-' + (datetime.getMonth() + 1) + '-' +
-      datetime.getDate() + ' ' + datetime.getHours() + ':' + datetime.getMinutes() + ':' + '00';
+      datetime.getDate() + ' ' + (datetime.getHours() - 9) + ':' + datetime.getMinutes() + ':' + '00';
+
     
     let sicktime = new Date(String(this.sickDate));
     let sick = sicktime.getFullYear() + '-' + (sicktime.getMonth() + 1) + '-' +
-      sicktime.getDate() + ' ' + '00' + ':' + '00' + ':' + '00';
+      (sicktime.getDate() - 1) + ' ' + '15' + ':' + '00' + ':' + '00';
       
     this.options = {
       user_id: this.user_id,
@@ -95,7 +96,7 @@ export class ReviewPage implements OnInit {
       cost: this.cost
     }
     this.review.postDx(this.options).then((data) => {
-      this.dx_id = data[0]['insertId'];
+      this.dx_id = data[0]['user_id'];
     });
 
     let navExtra: NavigationExtras = {

@@ -34,11 +34,8 @@ export class Reviews{
         });
     }
 
-    
     putDx(options: {}){
         return new Promise(resolve => {
-            console.log(options);
-
             this.http.put(this.uri + '/dx/mod', {
                 diagnosis_date: options["diagDate"],
                 clinic_code: options["clinic"],

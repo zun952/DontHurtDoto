@@ -17,8 +17,8 @@
     </ion-item>
     <ion-item>
       <ion-label>진료 시간</ion-label>
-      <ion-datetime *ngIf="myMod" display-format="HH:mm" [(ngModel)]="diagDate">{{currentDate}}</ion-datetime>
-      <ion-datetime *ngIf="!myMod" display-format="HH:mm" [(ngModel)]="diagDate"></ion-datetime>
+      <ion-datetime *ngIf="myMod" display-format="HH:MM" [(ngModel)]="diagDate">{{currentDate}}</ion-datetime>
+      <ion-datetime *ngIf="!myMod" display-format="HH:MM" [(ngModel)]="diagDate"></ion-datetime>
     </ion-item>
     <ion-item>
       <ion-label>반려동물 선택</ion-label>

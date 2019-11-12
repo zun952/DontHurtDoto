@@ -6,10 +6,10 @@
   "engines": {
     "node": "12.10.0"
   },
-  "main": "server.js",
+  "main": "service.js",
   "scripts": {
     "ng": "ng",
-    "start": "node server.js",
+    "start": "node service.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -55,6 +55,7 @@
     "hammerjs": "^2.0.8",
     "ion2-calendar": "^3.0.0-rc.0",
     "moment": "^2.24.0",
+    "moment-timezone": "^0.5.27",
     "mysql": "~2.17.0",
     "nd": "^1.2.0",
     "ng": "0.0.0",

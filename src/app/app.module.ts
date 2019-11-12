@@ -17,6 +17,8 @@ import { PopoverComponent } from '../app/popover/popover.component';
 import { Reviews } from 'src/provider/review';
 import { Pets } from 'src/provider/pet';
 import { HttpModule } from '@angular/http';
+import { FormsModule } from '@angular/forms';
+import { CalendarModule } from 'ion2-calendar';
 
 @NgModule({
   declarations: [AppComponent, PopoverComponent],
@@ -26,6 +28,8 @@ import { HttpModule } from '@angular/http';
     IonicModule.forRoot(),
     AppRoutingModule,
     BrowserAnimationsModule,
+    FormsModule,
+    CalendarModule,
     IonicModule.forRoot({
       scrollPadding: false,
       scrollAssist: true

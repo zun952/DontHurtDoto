@@ -8,9 +8,17 @@
 </ion-header>
 
 <ion-content fullscreen>
-	<ion-calendar [(ngModel)]="date" [format]="'YYYY-MM-DD'"></ion-calendar>
+	<ion-calendar #calendar
+	[(ngModel)]="cal"
+	[format]="'YYYY-MM-DD'"
+	(change)="onSelect($event)"
+	(monthChange)="monthChange($event)"
+	[options]="optionsCalendar">
+	</ion-calendar>
 	
-	<ion-item *ngFor="let item of dataList" (click)="showReview(item.diagnosis_id)" style="margin-left: 5%; margin-right: 15%;">
+	<ion-item *ngFor="let item of selectedDate" 
+	(click)="showReview(item.diagnosis_id)" 
+	style="margin-left: 5%; margin-right: 15%;">
 		<ion-label>
 			<h3>{{item.diagnosis_date}}</h3>
 			<h2>{{item.diagnosis_name}}     -    {{item.pet_name}}</h2>
