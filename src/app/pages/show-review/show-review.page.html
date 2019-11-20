@@ -1,9 +1,10 @@
 <ion-header translucent>
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button default-href="" text="" color="primary"></ion-back-button>
-    </ion-buttons>
-    <ion-title class="ion-text-center">기록 보기</ion-title>
+    <ion-title>기록 보기</ion-title>
+
+    <ion-button class="backButton" slot="start" fill="clear" (click)="goBack()" style="max-height: 25px">
+      <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 

@@ -29,18 +29,31 @@ export class TabReviewPage {
   constructor(public router: Router, public review: Reviews){ }
 
   ngOnInit(){
+  }
+
+  ionViewDidEnter(){
+    console.log("tab R - DidEnter")
+
     this.user_id = 'gofire99@naver.com';
     this.dx_id = 1;
     this.currentDate = this.date.getFullYear() + '-' +
-      (this.date.getMonth() + 1) + '-' +
-      this.date.getDate();
+      (this.date.getMonth() + 1) + '-' + this.date.getDate();
     
-    console.log(this.currentDate)
-
     this.options = {
       user_id: this.user_id,
       dx_date: this.currentDate
     };
+
+    /*
+    var i = 0
+    while( (i = this.selectedDate.shift()) != undefined ) {
+      console.log();
+    }
+    */
+
+    //초기화
+    this.selectedDate = []
+    this.dataList = []
 
     //기록 받아오기
     this.review.getDxList(this.options).then((data) => {
@@ -61,6 +74,8 @@ export class TabReviewPage {
         daysConfig: this._daysConfig
       };
 
+      this.selectedDate.splice(0, this.selectedDate.length)
+
       //오늘 날짜 기록 찾기
       for (var i = 0; this.dataList[i]; i++) {
         if(moment(this.currentDate).isSame(this.dataList[i]['diagnosis_date'], 'day')){
@@ -71,7 +86,7 @@ export class TabReviewPage {
       //표시할 기록 날짜 포맷 변경
       for(var i = 0; this.selectedDate[i]; i++){
         var date = moment(this.selectedDate[i]['diagnosis_date'])
-        this.selectedDate[i]['diagnosis_date'] = date.format("YYYY-MM-DD hh:mm")
+        this.selectedDate[i]['diagnosis_date'] = date.format("YYYY-MM-DD HH:mm")
       }
     });
   }
@@ -82,6 +97,9 @@ export class TabReviewPage {
     console.log("date is selected", selectedDay)
 
     //리스트 초기화
+    //this.selectedDate.splice(0, this.selectedDate.length)
+    
+    var i = 0
     while( (i = this.selectedDate.shift()) != undefined ) {
       console.log();
     }
@@ -93,8 +111,10 @@ export class TabReviewPage {
     }
     for(var i = 0; this.selectedDate[i]; i++){
       var date = moment(this.selectedDate[i]['diagnosis_date'])
-      this.selectedDate[i]['diagnosis_date'] = date.format("YYYY-MM-DD hh:mm")
+      this.selectedDate[i]['diagnosis_date'] = date.format("YYYY-MM-DD HH:mm")
     }
+
+    console.log(this.selectedDate)
   }
 
   //월 선택
@@ -126,9 +146,11 @@ export class TabReviewPage {
       };
 
       //리스트 초기화
+      this.selectedDate = []
+      /*
       while( (i = this.selectedDate.shift()) != undefined ) {
         console.log();
-      }
+      }*/
 
       //오늘 날짜 기록 찾기
       for (var i = 0; this.dataList[i]; i++) {
@@ -140,13 +162,14 @@ export class TabReviewPage {
       //표시할 기록 날짜 포맷 변경
       for(var i = 0; this.selectedDate[i]; i++){
         var date = moment(this.selectedDate[i]['diagnosis_date'])
-        this.selectedDate[i]['diagnosis_date'] = date.format("YYYY-MM-DD hh:mm")
+        this.selectedDate[i]['diagnosis_date'] = date.format("YYYY-MM-DD HH:mm")
       }
     });
 
     
   }
-  
+
+  /*
   //infinite scroll
   loadData(event) {
     setTimeout(() => {
@@ -161,10 +184,12 @@ export class TabReviewPage {
         event.target.disabled = true;
       }
     }, 500);
+    
   }
+  */
 
   createReview(){
-    this.router.navigate(['/review/'+'create']);
+    this.router.navigate(['/review/create']);
   }
 
   showReview(dx_id: number){

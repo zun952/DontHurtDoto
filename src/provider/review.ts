@@ -14,9 +14,9 @@ export class Reviews{
         this.uri = 'http://' + this.ip + ':' + this.port;
     }
 
-    getDxDetail(options){
+    getDxDetail(option){
         return new Promise(resolve => {
-            this.http.get(this.uri + '/dx?dx_id=' + options)
+            this.http.get(this.uri + '/dx?dx_id=' + option)
             .pipe(map(res => res.json()))
             .subscribe(data => {
                 resolve(data);
@@ -34,32 +34,13 @@ export class Reviews{
         });
     }
 
-    putDx(options: {}){
-        return new Promise(resolve => {
-            this.http.put(this.uri + '/dx/mod', {
-                diagnosis_date: options["diagDate"],
-                clinic_code: options["clinic"],
-                pet_id: options["pet"],
-                diagnosis_name: options["diagnosis"],
-                sick_date: options["sickDate"],
-                diagnosis_symptom: options["symptom"],
-                diagnosis_prognosis: options["prognosis"],
-                diagnosis_cost: options["cost"]
-            }).pipe(map(res => res.json()))
-            .subscribe(data => {
-                resolve(data);
-            });
-            
-        });
-    }
-    
     postDx(options: {}){
         return new Promise(resolve => {
             this.http.post(this.uri + '/dx/post', {
                 user_id: options["user_id"],
                 diagnosis_date: options["diagDate"],
                 clinic_code: options["clinic"],
-                pet_id: options["pet"],
+                pet_id: options["pet_id"],
                 diagnosis_name: options["diagnosis"],
                 sick_date: options["sickDate"],
                 diagnosis_symptom: options["symptom"],
@@ -72,4 +53,34 @@ export class Reviews{
         })
     }
 
+    putDx(options: {}){
+        return new Promise(resolve => {
+            this.http.put(this.uri + '/dx/mod', {
+                dx_id: options["dx_id"],
+                diagnosis_date: options["diagDate"],
+                clinic_code: options["clinic"],
+                pet_id: options["pet_id"],
+                diagnosis_name: options["diagnosis"],
+                sick_date: options["sickDate"],
+                diagnosis_symptom: options["symptom"],
+                diagnosis_prognosis: options["prognosis"],
+                diagnosis_cost: options["cost"]
+            }).pipe(map(res => res.json()))
+            .subscribe(data => {
+                resolve(data);
+            });
+            
+        });
+    }
+
+    delDx(option){
+        console.log(option)
+        return new Promise(resolve => {
+            this.http.delete(this.uri + '/dx/remove?dx_id=' + option)
+            .pipe(map(res => res.json()))
+            .subscribe(data => {
+                resolve(data);
+            })
+        })
+    }
 }

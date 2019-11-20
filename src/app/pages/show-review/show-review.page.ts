@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
-import { PopoverController, NavController } from '@ionic/angular';
-import { PopoverComponent } from 'src/app/popover/popover.component';
+import { NavController } from '@ionic/angular';
+import { Location } from '@angular/common';
+
 import { Reviews } from "../../../provider/review";
 
 @Component({
@@ -25,9 +26,14 @@ export class ShowReviewPage implements OnInit {
     private router: Router,
     public navCtrl: NavController,
     public route: ActivatedRoute,
-    public review: Reviews) { }
+    public review: Reviews,
+    public location: Location ) { }
 
-  ngOnInit() {
+  ngOnInit(){
+  }
+
+  ionViewDidEnter(){
+    console.log("show R - DidEnter")
     this.route.queryParams.subscribe(params => {
       if(params && params.user_id && params.dx_id){
         this.user_id = params.user_id;
@@ -56,19 +62,8 @@ export class ShowReviewPage implements OnInit {
     
   }
 
-  /*
-  async popSetting(event){
-    const popover = await this.popoverController.create({
-      component: PopoverComponent,
-      event,
-      keyboardClose: true
-    });
-
-    popover.style.cssText = '--min-width: 100px; --max-width: 150px;';
-
-    return await popover.present();
-  }
-  */
+  
+  
 
   modifyReview(){
     let navExtra: NavigationExtras = {
@@ -87,10 +82,22 @@ export class ShowReviewPage implements OnInit {
         cost: this.cost
       }
     }
-    this.router.navigate(['/review/' + "modify"], navExtra);
+    this.router.navigate(['/review/modify'], navExtra);
+  }
+
+  goBack(){
+    //this.location.back()
+    this.navCtrl.navigateRoot('/tabs/tab-review')
+    //this.router.navigate(['/tabs/tab-review'])
   }
 
   deleteReview(){
-    this.navCtrl.pop();
+
+    this.review.delDx(this.dx_id).then((data) => {
+      console.log(data)
+
+      this.navCtrl.navigateRoot('tabs/tab-review')
+    })
+
   }
 }

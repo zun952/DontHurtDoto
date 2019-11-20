@@ -1,8 +1,5 @@
 <ion-header translucent>
-  <ion-toolbar >
-    <ion-buttons slot="start">
-      <ion-back-button default-href="" text="" color="primary"></ion-back-button>
-    </ion-buttons>
+  <ion-toolbar>
     <ion-title *ngIf="myMod" class="ion-text-center">진료 기록하기</ion-title>
     <ion-title *ngIf="!myMod" class="ion-text-center">진료 수정하기</ion-title>
   </ion-toolbar>
@@ -17,22 +14,21 @@
     </ion-item>
     <ion-item>
       <ion-label>진료 시간</ion-label>
-      <ion-datetime *ngIf="myMod" display-format="HH:MM" [(ngModel)]="diagDate">{{currentDate}}</ion-datetime>
-      <ion-datetime *ngIf="!myMod" display-format="HH:MM" [(ngModel)]="diagDate"></ion-datetime>
+      <ion-datetime *ngIf="myMod" display-format="HH:mm" [(ngModel)]="diagDate">{{currentDate}}</ion-datetime>
+      <ion-datetime *ngIf="!myMod" display-format="HH:mm" [(ngModel)]="diagDate"></ion-datetime>
     </ion-item>
     <ion-item>
       <ion-label>반려동물 선택</ion-label>
       <ion-select interface="popover" [(ngModel)]="pet.name">
         <!--ion-select-option *ngIf="pet.state == 0 && pet.id" [value]="pet.name" style="background-color: blue">{{pet.name}}</ion-select-option-->
-        <ion-select-option *ngFor="let p of petList" [value]="p">{{p}}</ion-select-option>
+        <ion-select-option *ngFor="let p of petList" [value]="p.pet_name">{{p.pet_name}}</ion-select-option>
       </ion-select>
     </ion-item>
     
     <ion-item>
       <ion-label>진료 병원</ion-label>
-      <ion-input (click)="searchClinic()" placeholder="병원을 입력해주세요." style="text-align: end" [(ngModel)]="clinic.name">
-      </ion-input>
-      <ion-button (click)="searchClinic()" fill="clear">
+      <ion-input (click)="searchClinic($event)" placeholder="병원을 입력해주세요." style="text-align: end" [(ngModel)]="clinic.name"></ion-input>
+      <ion-button (click)="searchClinic($event)" fill="clear">
         <ion-icon slot="icon-only" name="search"></ion-icon>
       </ion-button>
     </ion-item>
