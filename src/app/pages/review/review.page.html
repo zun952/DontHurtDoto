@@ -27,8 +27,8 @@
     
     <ion-item>
       <ion-label>진료 병원</ion-label>
-      <ion-input (click)="searchClinic($event)" placeholder="병원을 입력해주세요." style="text-align: end" [(ngModel)]="clinic.name"></ion-input>
-      <ion-button (click)="searchClinic($event)" fill="clear">
+      <ion-input (click)="searchClinicModal()" placeholder="병원을 입력해주세요." style="text-align: end" [(ngModel)]="clinic.name"></ion-input>
+      <ion-button (click)="searchClinicModal()" fill="clear">
         <ion-icon slot="icon-only" name="search"></ion-icon>
       </ion-button>
     </ion-item>

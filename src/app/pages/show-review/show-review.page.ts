@@ -29,8 +29,7 @@ export class ShowReviewPage implements OnInit {
     public review: Reviews,
     public location: Location ) { }
 
-  ngOnInit(){
-  }
+  ngOnInit() {}
 
   ionViewDidEnter(){
     console.log("show R - DidEnter")
@@ -62,9 +61,6 @@ export class ShowReviewPage implements OnInit {
     
   }
 
-  
-  
-
   modifyReview(){
     let navExtra: NavigationExtras = {
       queryParams: {
@@ -92,7 +88,6 @@ export class ShowReviewPage implements OnInit {
   }
 
   deleteReview(){
-
     this.review.delDx(this.dx_id).then((data) => {
       console.log(data)
 

@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, NavigationExtras } from '@angular/router';
-import { NavController, PopoverController } from '@ionic/angular';
+import { NavController, PopoverController, ModalController } from '@ionic/angular';
+import { Location } from '@angular/common';
+import * as moment from 'moment';
+
 import { Reviews } from "../../../provider/review";
 import { Pets } from "../../../provider/pet";
-import { Location } from '@angular/common';
-import { PopoverComponent } from 'src/app/popover/popover.component';
-import * as moment from 'moment';
+import { SearchClinicModalComponent } from '../../search-clinic-modal/search-clinic-modal.component';
 
 @Component({
   selector: 'app-review',
@@ -41,7 +42,8 @@ export class ReviewPage implements OnInit {
   constructor(public router: Router, public navCtrl: NavController,
     private route: ActivatedRoute, public review: Reviews,
     public pets: Pets, public location: Location,
-    public popoverController: PopoverController) { }
+    public popoverController: PopoverController,
+    public modalController: ModalController) { }
 
   ngOnInit() {
     this.user_id = "gofire99@naver.com";
@@ -88,12 +90,13 @@ export class ReviewPage implements OnInit {
     this.diagDate = moment(String(this.diagDate)).add(-9, 'hours').format("YYYY-MM-DDThh:mm:ssZ")
     this.sickDate = moment(String(this.sickDate)).format("YYYY-MM-DD")
     console.log(this.diagDate)
+
+    this.clinic.code
     
     this.options = {
       user_id: this.user_id,
       diagDate: this.diagDate,
-      //clinic: this.clinic.code,
-      clinic: 1,
+      clinic: this.clinic.code,
       pet_id: this.pet.id,
       diagnosis: this.diagnosis,
       sickDate: this.sickDate,
@@ -155,15 +158,23 @@ export class ReviewPage implements OnInit {
     });    
   }
 
-  async searchClinic($event){
-    const popover = await this.popoverController.create({
-      component: PopoverComponent, event,
-      keyboardClose: true
-    });
+  //병원 검색
+  async searchClinicModal(){
+    const modal = await this.modalController.create({
+      component: SearchClinicModalComponent,
+      componentProps: {
+        'clinicName': this.clinic.name,
+        'clinicCode': this.clinic.code
+      }
+    }); 
+    await modal.present();
 
-    popover.style.cssText = '--min-width: 100px; --max-width: 150px;';
+    const { data } = await modal.onWillDismiss();
+    console.log(data.clinicName, data.clinicCode);
+    this.clinic.code = data.clinicCode
+    this.clinic.name = data.clinicName
 
-    return await popover.present();
+    return 
   }
 
   //작업 취소

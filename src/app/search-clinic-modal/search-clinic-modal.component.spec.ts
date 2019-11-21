@@ -1,22 +1,22 @@
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PopoverComponent } from './popover.component';
+import { SearchClinicModalComponent } from './search-clinic-modal.component';
 
-describe('PopoverComponent', () => {
-  let component: PopoverComponent;
-  let fixture: ComponentFixture<PopoverComponent>;
+describe('SearchClinicModalComponent', () => {
+  let component: SearchClinicModalComponent;
+  let fixture: ComponentFixture<SearchClinicModalComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ PopoverComponent ],
+      declarations: [ SearchClinicModalComponent ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(PopoverComponent);
+    fixture = TestBed.createComponent(SearchClinicModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
