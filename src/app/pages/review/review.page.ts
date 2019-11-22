@@ -39,11 +39,14 @@ export class ReviewPage implements OnInit {
   myMod: Number = 0;  //0 : modify, 1: create
   options = {};
 
-  constructor(public router: Router, public navCtrl: NavController,
-    private route: ActivatedRoute, public review: Reviews,
+  constructor(
+    public router: Router,
+    public navCtrl: NavController,
+    private route: ActivatedRoute,
+    public review: Reviews,
     public pets: Pets, public location: Location,
     public popoverController: PopoverController,
-    public modalController: ModalController) { }
+    public modalCtrl: ModalController ) { }
 
   ngOnInit() {
     this.user_id = "gofire99@naver.com";
@@ -160,7 +163,7 @@ export class ReviewPage implements OnInit {
 
   //병원 검색
   async searchClinicModal(){
-    const modal = await this.modalController.create({
+    const modal = await this.modalCtrl.create({
       component: SearchClinicModalComponent,
       componentProps: {
         'clinicName': this.clinic.name,
@@ -170,15 +173,17 @@ export class ReviewPage implements OnInit {
     await modal.present();
 
     const { data } = await modal.onWillDismiss();
-    console.log(data.clinicName, data.clinicCode);
-    this.clinic.code = data.clinicCode
-    this.clinic.name = data.clinicName
 
-    return 
+    if(data.packed){
+      console.log(data);
+      this.clinic.code = data.clinicCode
+      this.clinic.name = data.clinicName
+    }
   }
 
   //작업 취소
   cancel(){
     this.location.back()
+    this.modalCtrl.dismiss()
   }
 }

@@ -38,7 +38,10 @@ export class SearchClinicModalComponent implements OnInit {
   }
 
   goBack(){
-    this.modalCtrl.dismiss()
+    this.modalCtrl.dismiss({
+      'dismissed': true,
+      'packed': false
+    }, 'cancel')
   }
 
   inputClinic(name, code) {
@@ -47,6 +50,7 @@ export class SearchClinicModalComponent implements OnInit {
 
     this.modalCtrl.dismiss({
       'dismissed': true,
+      'packed': true,
       'clinicName': this.clinicName,
       'clinicCode': this.clinicCode
     })

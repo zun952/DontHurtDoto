@@ -26,10 +26,11 @@ export class TabReviewPage {
   _daysConfig = [];
   cal: String;
 
-  constructor(public router: Router, public review: Reviews){ }
+  constructor(
+    public router: Router,
+    public review: Reviews ){ }
 
-  ngOnInit(){
-  }
+  ngOnInit(){ }
 
   ionViewDidEnter(){
     console.log("tab R - DidEnter")
@@ -188,8 +189,9 @@ export class TabReviewPage {
   }
   */
 
-  createReview(){
+  async createReview(){
     this.router.navigate(['/review/create']);
+
   }
 
   showReview(dx_id: number){

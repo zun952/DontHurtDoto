@@ -1,4 +1,4 @@
-<ion-header>
+<ion-header translucent>
   <ion-toolbar>
       <ion-button class="backButton" slot="start" fill="clear" (click)="goBack()" style="max-height: 25px">
         <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
@@ -8,7 +8,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content fullscreen>
   <ion-card style="margin-top: 2px;">
     <ion-item>
       <ion-input placeholder="병원명을 입력해주세요." style="text-align: justify;" [(ngModel)]="clinicName" clear-input="true"></ion-input>
