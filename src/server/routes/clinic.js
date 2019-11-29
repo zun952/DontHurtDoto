@@ -20,18 +20,16 @@ router.all("/*", function(req, res, next){
 
 //펫 목록
 router.get('/list', function(req, res){
-    con.query('select ' +
-	'pet_id' +
-    ', pet_name' +
-    ', user_id ' +
-    'from pet ' +
-    'where user_id = ' + req.query.user_id, function(err, rows){
-	if(err){
-            return res.send(err);
-        } else{
-            return res.json(rows);
-        }
-    });
+	con.query('select * ' +
+			'from clinic ' +
+			'where clinic_name like \'%' + req.query.clinic_name + '%\'', function(err, rows){
+					if(err){
+							return res.send(err);
+					} else{
+							return res.json(rows);
+					}
+			}
+	);
 });
 
 module.exports = router;

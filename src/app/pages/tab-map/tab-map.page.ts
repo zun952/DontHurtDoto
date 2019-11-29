@@ -21,7 +21,6 @@ export class TabMapPage {
     private nativeGeocoder: NativeGeocoder) {
   }
 
-
   ngOnInit() {
     this.loadMap();
   }

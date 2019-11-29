@@ -1,6 +1,6 @@
 module.exports = {
     host: "localhost",
     user: "zun952",
-    password: "tlsehdals11",
+    password: "Tlsehdals1!",
     database: "doto"
 }
