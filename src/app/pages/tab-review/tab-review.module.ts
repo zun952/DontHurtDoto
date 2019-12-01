@@ -10,10 +10,11 @@ import { CalendarModule } from 'ion2-calendar';
   imports: [
     IonicModule,
     CommonModule,
-	FormsModule,
-	CalendarModule,
+	  FormsModule,
+    CalendarModule,
     RouterModule.forChild([{ path: '', component: TabReviewPage }])
   ],
+  entryComponents: [ ],
   declarations: [TabReviewPage]
 })
 

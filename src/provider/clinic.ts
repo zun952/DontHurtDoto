@@ -1,5 +1,9 @@
 import { Injectable } from '@angular/core';
+<<<<<<< HEAD
 import { Http, Headers } from '@angular/http';
+=======
+import { Http } from '@angular/http';
+>>>>>>> master
 import { map } from "rxjs/operators";
 
 @Injectable()
@@ -9,11 +13,16 @@ export class Clinics{
     uri: any;
 
     constructor(public http: Http){
+<<<<<<< HEAD
         this.ip = "localhost";
+=======
+        this.ip = "ec2-54-180-121-181.ap-northeast-2.compute.amazonaws.com";
+>>>>>>> master
         this.port = "8080";
         this.uri = 'http://' + this.ip + ':' + this.port;
     }
 
+<<<<<<< HEAD
     getClinicDetail(options){
         console.log("start clinic.js getClinicDetail")
         return new Promise(resolve => {
@@ -35,10 +44,16 @@ export class Clinics{
             //headers.append('Content-Type', 'application/json');
 
             this.http.get(this.uri + '/dx/list?user_id=' + options)
+=======
+    getClinicList(options){
+        return new Promise(resolve => {
+            this.http.get(this.uri + '/clinic/list?clinic_name=' + options)
+>>>>>>> master
             .pipe(map(res => res.json()))
             .subscribe(data => {
                 resolve(data);
             });
+<<<<<<< HEAD
         });
     }
 
@@ -91,4 +106,8 @@ export class Clinics{
         })
     }
 
+=======
+        })
+    }
+>>>>>>> master
 }

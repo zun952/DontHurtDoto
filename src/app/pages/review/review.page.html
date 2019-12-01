@@ -1,8 +1,5 @@
 <ion-header translucent>
-  <ion-toolbar >
-    <ion-buttons slot="start">
-      <ion-back-button default-href="" text=""></ion-back-button>
-    </ion-buttons>
+  <ion-toolbar>
     <ion-title *ngIf="myMod" class="ion-text-center">진료 기록하기</ion-title>
     <ion-title *ngIf="!myMod" class="ion-text-center">진료 수정하기</ion-title>
   </ion-toolbar>
@@ -12,25 +9,26 @@
   <ion-list>
     <ion-item>
       <ion-label>진료 날짜</ion-label>
-      <ion-datetime display-format="YYYY.MM.DD" [(ngModel)]="diagDate"></ion-datetime>
+      <ion-datetime *ngIf="myMod" display-format="YYYY.MM.DD" [(ngModel)]="diagDate">{{currentDate}}</ion-datetime>
+      <ion-datetime *ngIf="!myMod" display-format="YYYY.MM.DD" [(ngModel)]="diagDate"></ion-datetime>
     </ion-item>
     <ion-item>
       <ion-label>진료 시간</ion-label>
-      <ion-datetime display-format="HH:mm" [(ngModel)]="diagDate"></ion-datetime>
+      <ion-datetime *ngIf="myMod" display-format="HH:mm" [(ngModel)]="diagDate">{{currentDate}}</ion-datetime>
+      <ion-datetime *ngIf="!myMod" display-format="HH:mm" [(ngModel)]="diagDate"></ion-datetime>
     </ion-item>
     <ion-item>
-        <ion-label>반려동물 선택</ion-label>
-        <ion-select interface="popover">
-          <ion-select-option *ngFor="let pet of pets">{{pet}}</ion-select-option>
+      <ion-label>반려동물 선택</ion-label>
+      <ion-select interface="popover" [(ngModel)]="pet.name">
+        <!--ion-select-option *ngIf="pet.state == 0 && pet.id" [value]="pet.name" style="background-color: blue">{{pet.name}}</ion-select-option-->
+        <ion-select-option *ngFor="let p of petList" [value]="p.pet_name">{{p.pet_name}}</ion-select-option>
       </ion-select>
     </ion-item>
     
     <ion-item>
       <ion-label>진료 병원</ion-label>
-      <ion-input (click)="searchClinic()" placeholder="병원을 입력해주세요." style="text-align: end" [(ngModel)]="clinic">
-        <!--ion-modal-controller></ion-modal-controller-->
-      </ion-input>
-      <ion-button (click)="searchClinic()" fill="clear">
+      <ion-input (click)="searchClinicModal()" placeholder="병원을 입력해주세요." style="text-align: end" [(ngModel)]="clinic.name"></ion-input>
+      <ion-button (click)="searchClinicModal()" fill="clear">
         <ion-icon slot="icon-only" name="search"></ion-icon>
       </ion-button>
     </ion-item>
@@ -51,7 +49,7 @@
 
     <ion-item>
       <ion-label position="stacked">증상</ion-label>
-      <ion-textarea placeholder="증상을 입력해주세요." [(ngModel)]="symtom"></ion-textarea>
+      <ion-textarea placeholder="증상을 입력해주세요." [(ngModel)]="symptom"></ion-textarea>
     </ion-item>
     <ion-item>
       <ion-label position="stacked">소견 및 처방</ion-label>
@@ -61,14 +59,14 @@
 
   <ion-item>
     <ion-label>진료비</ion-label>
-    <ion-input type="number" style="text-align: end" pattern="\d*"></ion-input>
+    <ion-input type="number" style="text-align: end" pattern="\d*" [(ngModel)]="cost"></ion-input>
     <ion-label>원</ion-label>
   </ion-item>
 
   <ion-row>
     <ion-col style="text-align: center">
       <ion-button *ngIf="myMod" (click)="createReview()">등록</ion-button>
-      <ion-button *ngIf="!myMod" (click)="modifyReview()">등록</ion-button>
+      <ion-button *ngIf="!myMod" (click)="modifyReview()">수정</ion-button>
       <ion-button (click)="cancel()" color="danger">취소</ion-button>
     </ion-col>
   </ion-row>

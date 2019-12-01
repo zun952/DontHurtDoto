@@ -6,7 +6,12 @@
 // }
 module.exports = {
     host: "localhost",
+<<<<<<< HEAD
     user: "root",
     password: "z15660098",
+=======
+    user: "zun952",
+    password: "Tlsehdals1!",
+>>>>>>> master
     database: "doto"
 }

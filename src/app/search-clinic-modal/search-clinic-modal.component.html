@@ -1,0 +1,35 @@
+<ion-header translucent>
+  <ion-toolbar>
+      <ion-button class="backButton" slot="start" fill="clear" (click)="goBack()" style="max-height: 25px">
+        <ion-icon slot="icon-only" name="arrow-back"></ion-icon>
+      </ion-button>
+
+    <ion-title>병원 검색</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+  <ion-card style="margin-top: 2px;">
+    <ion-item>
+      <ion-input placeholder="병원명을 입력해주세요." style="text-align: justify;" [(ngModel)]="clinicName" clear-input="true"></ion-input>
+      <ion-button (click)="searchClinic()" fill="clear">
+        <ion-icon slot="icon-only" name="search"></ion-icon>
+      </ion-button>
+    </ion-item>
+</ion-card>
+
+  <ion-list *ngFor="let item of clinicList">
+    <ion-item>
+      <ion-button style="margin-right: 15px;" slot="start" fill="clear">
+        <ion-icon style="zoom:1.5;" name="flag"></ion-icon>
+      </ion-button>
+      <ion-text style="margin-top: -10px; margin-bottom: -12px;">
+        <h4 style="margin-bottom: -10px;">{{item.clinic_name}}</h4>
+        <p style="margin-bottom: -13px;">{{item.clinic_contact}}</p>
+        <p style="zoom:0.8;">{{item.clinic_address_city}} {{item.clinic_address_gu}} {{item.clinic_address_dong}} {{item.clinic_address_details}}</p>
+      </ion-text>
+      <ion-button style="zoom:1.3" (click)="inputClinic(item.clinic_name, item.clinic_code)" slot="end">입력</ion-button>
+    </ion-item>
+  </ion-list>
+    
+</ion-content>
