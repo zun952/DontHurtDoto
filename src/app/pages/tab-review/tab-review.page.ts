@@ -19,21 +19,6 @@ export class TabReviewPage {
   selectedDate: Array<any> = [];
   user_id: any;
   dx_id: any;
-<<<<<<< HEAD
-  clinic_id : any = 1;
-
-  constructor(public router: Router, public review: Reviews){
-    /*
-    this.review.getDxList(this.user_id).then((data) => {
-        //파싱하는 법
-        //날짜 별 리스트 업 하기
-        //달력 버튼 누르면 재 검색하기
-    });
-    */
-    this.user_id = 'gofire99@naver.com';
-    this.dx_id = 1;
-    this.clinic_id = 1;
-=======
   currentDate: any;
   options = {};
   date = new Date();
@@ -183,7 +168,6 @@ export class TabReviewPage {
     });
 
     
->>>>>>> master
   }
 
   /*
@@ -218,14 +202,5 @@ export class TabReviewPage {
       }
     }
     this.router.navigate(['/show-review'], navExtra);
-  }
-  showClinic(){
-    let navExtra: NavigationExtras = {
-      queryParams:{
-        clinic_id: this.clinic_id
-      }
-    }
-    console.log(this.clinic_id)
-    this.router.navigate(['/tab-map'], navExtra);
   }
 }
