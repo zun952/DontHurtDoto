@@ -15,8 +15,9 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { PopoverComponent } from '../app/popover/popover.component';
 import { Reviews } from 'src/provider/review';
+import { Clinics } from 'src/provider/clinic';
 import { HttpModule } from '@angular/http';
-
+import { HospitalModalPageModule } from './hospital-modal/hospital-modal.module';
 @NgModule({
   declarations: [AppComponent, PopoverComponent],
   entryComponents: [PopoverComponent],
@@ -25,6 +26,7 @@ import { HttpModule } from '@angular/http';
     IonicModule.forRoot(),
     AppRoutingModule,
     BrowserAnimationsModule,
+    HospitalModalPageModule,
     IonicModule.forRoot({
       scrollPadding: false,
       scrollAssist: true
@@ -35,6 +37,7 @@ import { HttpModule } from '@angular/http';
     Geolocation,
     NativeGeocoder,
     Reviews,
+    Clinics,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent],

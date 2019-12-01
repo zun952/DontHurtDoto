@@ -18,7 +18,7 @@ router.get('', function(req, res){
 });
 
 router.get('/list', function(req, res){
-    con.query('select diagnosis_date, pet_id, diagnosis_name, clinic_code from diagnosis where user_id = \'' + req.query.user_id + '\'', function(err, rows){
+    con.query('select diagnosis_date, pet_id, diagnosis_name, clinic_code from diagnosis where user_id = \'' + req.query.user_id + '\'', function(err, rows){
         if(err) { 
             return res.send(err);
         } else{

@@ -8,7 +8,9 @@ const routes: Routes = [
   { path: 'edit-account', loadChildren: './pages/edit-account/edit-account.module#EditAccountPageModule' },
   { path: 'edit-pet', loadChildren: './pages/edit-pet/edit-pet.module#EditPetPageModule' },
   { path: 'review/:mode', loadChildren: './pages/review/review.module#ReviewPageModule' },
-  { path: 'show-review', loadChildren: './pages/show-review/show-review.module#ShowReviewPageModule' }
+  { path: 'show-review', loadChildren: './pages/show-review/show-review.module#ShowReviewPageModule' },
+  { path: 'hospital-modal', loadChildren: './hospital-modal/hospital-modal.module#HospitalModalPageModule' },
+  { path: 'tab-map', loadChildren: './pages/tab-map/tab-map.module#TabMapPageModule' }
 ];
 @NgModule({
   imports: [
