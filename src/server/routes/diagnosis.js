@@ -49,6 +49,14 @@ router.get('', function(req, res){
 
 //날짜별 진료기록 목록보기
 router.get('/list', function(req, res){
+<<<<<<< HEAD
+    con.query('select diagnosis_date, pet_id, diagnosis_name, clinic_code from diagnosis where user_id = \'' + req.query.user_id + '\'', function(err, rows){
+        if(err) { 
+            return res.send(err);
+        } else{
+            return res.json(rows);
+        }   
+=======
     con.query('select ' +
 		'dx.diagnosis_date' +
 		', p.pet_name' +
@@ -91,6 +99,7 @@ router.put('/mod', function(req, res){
         	} else{
             	return res.json(rows);
         	}
+>>>>>>> master
     });
 });
 

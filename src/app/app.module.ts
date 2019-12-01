@@ -14,9 +14,15 @@ import { FormsModule } from '@angular/forms';
 import { CalendarModule } from 'ion2-calendar';
 
 import { Reviews } from 'src/provider/review';
+<<<<<<< HEAD
+import { Clinics } from 'src/provider/clinic';
+import { HttpModule } from '@angular/http';
+import { HospitalModalPageModule } from './hospital-modal/hospital-modal.module';
+=======
 import { Pets } from 'src/provider/pet';
 import { Clinics } from "src/provider/clinic";
 
+>>>>>>> master
 @NgModule({
   declarations: [ AppComponent ],
   imports: [ BrowserModule,
@@ -24,8 +30,12 @@ import { Clinics } from "src/provider/clinic";
     IonicModule.forRoot(),
     AppRoutingModule,
     BrowserAnimationsModule,
+<<<<<<< HEAD
+    HospitalModalPageModule,
+=======
     FormsModule,
     CalendarModule,
+>>>>>>> master
     IonicModule.forRoot({
       scrollPadding: false,
       scrollAssist: true
@@ -36,7 +46,10 @@ import { Clinics } from "src/provider/clinic";
     Geolocation,
     NativeGeocoder,
     Reviews,
+<<<<<<< HEAD
+=======
     Pets,
+>>>>>>> master
     Clinics,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
