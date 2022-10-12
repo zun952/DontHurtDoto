@@ -37,7 +37,7 @@
     "@ionic/pro": "2.0.4",
     "body-parser": "^1.18.3",
     "chart.js": "^2.8.0",
-    "cordova-ios": "4.5.5",
+    "cordova-ios": "6.2.0",
     "cordova-plugin-add-swift-support": "^2.0.2",
     "cordova-plugin-calendar": "^5.1.4",
     "cordova-plugin-device": "^2.0.2",
